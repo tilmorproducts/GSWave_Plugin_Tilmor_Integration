@@ -1,14 +1,22 @@
-const path = require('path')
+/**
+ * Define pages in the const pages array
+ * Each page must have a corresponding .html file in the src/html/pages folder and a corresponding .js file in the src/js/pages folder
+ */
+
+const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
+const _ = require('lodash');
+
+// Define your pages
+const pages = ['index'];
 
 module.exports = {
-    //entry: './src/js/main.js',
     mode: 'development',
-    entry: './src/js/main.js',
+    entry: _.fromPairs(pages.map(page => [page, `./src/js/pages/${page}.js`])),
     output: {
-        filename: 'js/main.js',
+        filename: 'js/pages/[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true
     },
@@ -22,12 +30,8 @@ module.exports = {
             {
                 test: /\.(scss)$/,
                 use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader'
-                    },
+                    'style-loader',
+                    'css-loader',
                     {
                         loader: 'postcss-loader',
                         options: {
@@ -38,9 +42,7 @@ module.exports = {
                             }
                         }
                     },
-                    {
-                        loader: 'sass-loader'
-                    }
+                    'sass-loader'
                 ]
             }
         ]
@@ -53,9 +55,12 @@ module.exports = {
                 { from: "./src/manifest.json", to: "manifest.json" },
             ],
         }),
-        new HtmlWebpackPlugin({
-            template: 'src/index.html'
-        }),
+        ..._.map(pages, page => new HtmlWebpackPlugin({
+            template: `src/html/pages/${page}.html`,
+            filename: `${page}.html`,
+            chunks: [page]
+        })),
         new HtmlWebpackTagsPlugin({ tags: ['js/pluginSDK.js'], append: false })
     ]
-}
+};
+
