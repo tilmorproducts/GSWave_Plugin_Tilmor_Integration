@@ -1,20 +1,16 @@
-/**
- * Define pages in the const pages array
- * Each page must have a corresponding .html file in the src/html/pages folder and a corresponding .js file in the src/js/pages folder
- */
-
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const _ = require('lodash');
 
-// Define your pages
-const pages = ['index'];
-
 module.exports = {
     mode: 'development',
-    entry: _.fromPairs([...pages.map(page => [page, `./src/js/pages/${page}.js`]), ['master', './src/js/master.js']]),
+    entry: {
+        master: './src/js/master.js',
+        router: './src/js/router.js',
+        pages: './src/js/pages/index.js' // Entry point for all pages
+    },
     output: {
         filename: 'js/[name].js',
         path: path.resolve(__dirname, 'dist'),
@@ -23,7 +19,8 @@ module.exports = {
     devServer: {
         static: path.resolve(__dirname, 'dist'),
         port: 8080,
-        hot: true
+        hot: true,
+        historyApiFallback: true // Serve index.html for all 404 routes
     },
     module: {
         rules: [
@@ -47,19 +44,19 @@ module.exports = {
             }
         ]
     },
-    plugins: [
+    plugins: _.compact([
         new CopyPlugin({
             patterns: [
                 { from: "./src/js/wave-add-in-kit.js", to: "js/pluginSDK.js" },
                 { from: "./src/img/logopng.png", to: "logopng.png" },
                 { from: "./src/manifest.json", to: "manifest.json" },
+                { from: "./src/html/pages", to: "html" }, // Copy html folder to dist
             ],
         }),
-        ..._.map(pages, page => new HtmlWebpackPlugin({
-            template: `src/html/pages/${page}.html`,
-            filename: `${page}.html`,
-            chunks: ['master', page] // Include master.js in each HTML file
-        })),
+        new HtmlWebpackPlugin({
+            template: 'src/html/index.html',
+            filename: 'index.html'
+        }),
         new HtmlWebpackTagsPlugin({ tags: ['js/pluginSDK.js'], append: false })
-    ]
+    ])
 };
