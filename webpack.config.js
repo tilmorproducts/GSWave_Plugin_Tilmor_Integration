@@ -14,9 +14,9 @@ const pages = ['index'];
 
 module.exports = {
     mode: 'development',
-    entry: _.fromPairs(pages.map(page => [page, `./src/js/pages/${page}.js`])),
+    entry: _.fromPairs([...pages.map(page => [page, `./src/js/pages/${page}.js`]), ['master', './src/js/master.js']]),
     output: {
-        filename: 'js/pages/[name].js',
+        filename: 'js/[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true
     },
@@ -28,7 +28,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(scss)$/,
+                test: /\.(scss|css)$/,
                 use: [
                     'style-loader',
                     'css-loader',
@@ -58,9 +58,8 @@ module.exports = {
         ..._.map(pages, page => new HtmlWebpackPlugin({
             template: `src/html/pages/${page}.html`,
             filename: `${page}.html`,
-            chunks: [page]
+            chunks: ['master', page] // Include master.js in each HTML file
         })),
         new HtmlWebpackTagsPlugin({ tags: ['js/pluginSDK.js'], append: false })
     ]
 };
-
