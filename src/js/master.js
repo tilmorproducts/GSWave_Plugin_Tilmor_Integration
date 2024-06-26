@@ -27,8 +27,8 @@ pluginSDK.eventEmitter.on('onInitPluginWindowOk', function ({ userConfig, plugin
      * show:'Display? True/False'}
      */
     pluginSDK.setDefaultWindow({
-        width: 482,
-        height: 586,
+        width: 1100,
+        height: 600,
         center: true,
         show: false,
     })
