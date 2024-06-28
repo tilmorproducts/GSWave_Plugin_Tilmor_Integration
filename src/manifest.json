@@ -2,7 +2,7 @@
     "name": "Wave Plugin test",
     "version": "1.0.0.1",
     "description": "This is to test a webpack plugin with wave",
-    "icon": "/logopng.png",
+    "icon": "/img/logo.png",
     "permissions": [],
     "plugin_type": "background",
     "minimum_SDK_version": "1.0.4"

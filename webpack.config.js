@@ -48,7 +48,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: "./src/js/wave-add-in-kit.js", to: "js/pluginSDK.js" },
-                { from: "./src/img/logopng.png", to: "logopng.png" },
+                { from: "./src/img", to: "img" }, //copy img folder to dist
                 { from: "./src/manifest.json", to: "manifest.json" },
                 { from: "./src/html/pages", to: "html" }, // Copy html folder to dist
             ],
