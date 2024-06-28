@@ -1,4 +1,20 @@
-// src/js/router.js
+/*!
+ * Project: WavePlugin
+ * Author: Jonathan Hayman
+ * Company: Anglia Computer Solutions Business Ltd
+ * Description: Router module for navigating between pages in the WavePlugin project.
+ * Created on: 28-06-2024
+ * Last Updated: 28-06-2024
+ * Version: 1.0.0
+ * 
+ * License: MIT
+ * 
+ * Additional Notes:
+ * - This module handles dynamic page loading based on URL hash changes.
+ * 
+ * Example Usage:
+ * - This file is automatically bundled and included in the project via Webpack.
+ */
 import pages from './pages/index.js';
 
 async function loadPage(page) {

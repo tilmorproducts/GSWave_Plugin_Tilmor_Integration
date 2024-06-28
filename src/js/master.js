@@ -1,8 +1,26 @@
+/*!
+ * Project: WavePlugin
+ * Author: Jonathan Hayman
+ * Company: Anglia Computer Solutions Business Ltd
+ * Description: This file includes global JavaScript functionalities for the WavePlugin project.
+ * Created on: 28-06-2024
+ * Last Updated: 28-06-2024
+ * Version: 1.0.0
+ * 
+ * License: MIT
+ * 
+ * Example Usage:
+ * - This file is automatically bundled and included in the project via Webpack.
+ */
+
 // Import our custom CSS
 import '../scss/styles.scss'
 
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
+
+// Import PluginSDK event constants
+import { pluginEvent } from './events'
 
 /**
      * Monitor events:
