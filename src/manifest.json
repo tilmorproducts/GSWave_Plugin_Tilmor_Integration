@@ -1,9 +1,21 @@
 {
-    "name": "Wave Plugin test",
-    "version": "1.0.0.1",
-    "description": "This is to test a webpack plugin with wave",
-    "icon": "/img/logo.png",
-    "permissions": [],
+    "name": "Tilmor Ecommerce Integration Plugin",
+    "version": "0.0.1",
+    "description": "Provides features that allow the wave app to integrate with the Tilmor website",
+    "icon": "/img/tilmor_ox_80.png",
+    "extend_icon": "/img/tilmor_ox_56_transparent.png",
+    "permissions": [
+        "call.listen",
+        "call.dial",
+        "contact.manage",
+        "custom.listen"
+    ],
+    "plugin_show_in_wave": [
+        {
+            "scopes": "file",
+            "context": "chat"
+        }
+    ],
     "plugin_type": "background",
-    "minimum_SDK_version": "1.0.4"
+    "minimum_SDK_version": "1.0.x"
 }
