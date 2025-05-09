@@ -1,2 +1,2 @@
-# GrandStream Wave Plugin Template with Bootstrap 5
+# Tilmor Site Integration for GrandStream Wave Plugin with Bootstrap 5 
 
