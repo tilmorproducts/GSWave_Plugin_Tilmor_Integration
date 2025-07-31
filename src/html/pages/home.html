@@ -1,5 +1,27 @@
 <div id="root" class="container py-4 px-3 mx-auto">
-  <h2>The Tilmor Website Plugin is now running!</h2>
-  <h3>You can close this window and it will continue to run in the background.</h3>
-  <img src="img/tilmor_ox_56.png" />
+  <div id="phoneNotesContainer">
+    <h2>The Tilmor Website Plugin is now running! And updated!</h2>
+    <h3>You can close this window and it will continue to run in the background.</h3>
+    <img src="img/tilmor_ox_56.png" />
+  </div>
+  <div id="newNoteContainer" class="hideSection">
+    <h2>New Note</h2>
+    <div id="userIdElement"></div>
+    <div id="noteResponse"></div>
+    <div class="input-group mb-3">
+      <textarea id="noteInput" class="form-control" placeholder="Note..." aria-label="Note" aria-describedby="button-addon1"></textarea>
+      <button onclick="submitNote(document.getElementById('noteInput').value)" class="btn btn-outline-secondary" type="button" id="button-addontest">Submit</button>
+    </div>
+  </div>
+  <style>
+    .hideSection {
+      display: none;
+    }
+    .statusSuccess {
+      color: green;
+    }
+    .statusError {
+      color: red;
+    }
+  </style>
 </div>

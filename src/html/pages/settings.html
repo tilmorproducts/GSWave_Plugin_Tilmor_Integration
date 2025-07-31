@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <h1>settings</h1>
+    <div>
+      <div id="settingsPageElement"></div>
+      <label for="nameInput" class="form-label">Name</label>
+      <div class="input-group mb-3">
+        <input type="text" id="nameInput" class="form-control" placeholder="Name..." aria-label="Name" aria-describedby="button-addon3" />
+        <button onclick="submitName(document.getElementById('nameInput').value)" class="btn btn-outline-secondary" type="button" id="button-addon3">Submit</button>
+      </div>
+      <div id="nameSuccess"></div>
+      <label for="apiInput" class="form-label">API Key</label>
+      <div class="input-group mb-3">
+        <input type="password" id="apiInput" class="form-control" placeholder="API key..." aria-label="API key" aria-describedby="button-addon2" />
+        <button onclick="submitApiKeyinSettings(document.getElementById('apiInput').value)" class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+      </div>
+    </div>
+    <div id="apiSuccess"></div>
+  </body>
+  <script>
+    console.log("hit");
+  </script>
+</html>

@@ -35,26 +35,43 @@ Example Usage:
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <!-- <div class="collapse navbar-collapse" id="navbarsExample07">
+          <div class="collapse navbar-collapse" id="navbarsExample07">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" href="#/home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#/about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#/contact">Contact</a>
+                <a class="nav-link" href="#/settings">Settings</a>
               </li>
             </ul>
-          </div> -->
+          </div>
         </div>
       </nav>
       <!--/-->
 
       <!--CONTENT FOR EACH PAGE INJECTED BY THE ROUTER // DO NOT DELETE THIS DIV-->
       <div id="content"></div>
+      <!-- <div id="apiKeyContainer" class="hideApiInput">
+        <h4 class="apiWarning">No API key detected. Please enter the API key for the tilmor site:</h4>
+        <div class="input-group mb-3">
+          <input type="text" id="apiInput" class="form-control" placeholder="API key..." aria-label="API key" aria-describedby="button-addon2" />
+          <button onclick="submitApiKey(document.getElementById('apiInput').value)" class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+        </div>
+      </div> -->
+      <div class="hideSection"></div>
       <!--/-->
     </main>
+    <style>
+      .hideApiInput {
+        display: none;
+      }
+      .apiWarning {
+        color: rgb(161, 0, 0);
+        margin-top: 1rem;
+      }
+      .hideSection {
+        display: none;
+      }
+    </style>
   </body>
 </html>
